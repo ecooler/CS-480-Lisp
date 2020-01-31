@@ -1,0 +1,116 @@
+Due: 11:59pm on Sep. 15, 2017
+
+CS 480
+Fall 2017
+Dr. Duric
+
+
+                          Homework #1 (25p)
+
+
+0. (3p extra credit) Write a wrapper function that executes all your
+    code with sufficient examples (at least 5 per function). 
+
+1. (4p) Give iterative and recursive definitions of a function that
+
+   (a) takes a positive integer and prints that many dots.
+   (b) takes a list and returns the number of times the symbol a
+       occurs in it.
+
+2. (3p) A friend is trying to write a function that returns the sum of all
+   the non-nil elements in a list. He has written two versions of this 
+   function and neither of them work. Explain what is wrong with each,
+   and give a correct version:
+
+   (a) (defun summit (lst)
+          (remove nil lst)
+	  (apply #'+ lst))
+
+   (b) (defun summit (lst)
+          (let ((x (car lst)))
+	     (if (null x)
+		 (summit (cdr lst))
+		 (+ x (summit (cdr lst))))))
+
+
+						       
+3. (3p) Suppose the function pos+ takes a list and returns a list of each
+   element plus its position:
+        > (pos+ '(7 5 1 4))
+        (7 6 3 7)
+
+   Define this function using (a) recursion (b) iteration (c) mapcar
+
+4. (3p) Define a function f that takes one numeric argument, and returns the
+   greatest argument passed to it so far:
+        >(f 5)
+        5
+        >(f 2)
+        5
+        >(f 10)
+        10
+
+5. Dictionary (3p):
+    You are given a dictionary in the form  of "exploded" symbols (e.g. 
+    (d e f u n), (s e t q), (s e t f)). Write a recursive function,
+    lookup, that takes a prefix of an exploded symbol (e.g., (s e t))
+    and a dictionary and returns the list of all items in the
+    dictionary that match the prefix. 
+
+
+6. Occurrences (3p):
+    Define a function that takes a list and returns a list indicating
+    the number of times each (eql) element appears, sorted from most
+    common element to least common:
+    
+    > (occurrences '(a b a d a c d c a))
+    ((A 4) (C 2) (D 2) (B 1))
+
+7. Find-fun (3p):
+    Write a lisp function find-fun that takes a dictionary (a list of exploded words) 
+    and returns all words that contain (f u n) as a sublist.
+
+    > (find-fun '((d e f u n) (h e l l o) (s e t f) (f u n d)))  
+    ((D E F U N) (F U N D))
+
+8. Conv16: (3p)
+    Write a function conv16 that takes an exploded hexadecimal
+    number-i.e. a list in which hexadecimal digits (0-9,a-f) are separated by
+    spaces-and returns its corresponding value. For example,
+
+    > (conv16 '(7 d d)) 
+    2013
+
+    Note that 7dd in a hexadecimal form can be converted into a decimal form
+    by the following rule (7*16 + 13)*16 + 13, i.e. multiply the first digit 
+    by 16, add the second digit,  multiply the result by 16, add the third 
+    digit, and so on. Note that you do not need a calculator to do this problem. 
+     
+
+Notes: For full credit your submission has to follow instructions in full, and 
+it has to be sent before 11:59pm on the day of submission. In addition, your code
+has to be commented and it should work without any warnings.
+
+Instructions for submission:
+----------------------------
+
+(1) Using script or dribble, you are to capture the output of a Lisp session
+    in which you successfully load and execute your code, showing sufficient
+    testing of your function(s). You should show at least 5 examples
+    of execution of each of your functions. You will attach these results in your email (see next step) as “output.txt”
+
+(2) Send a SINGLE email to ple13@gmu.edu formatted in the following way:
+ 
+       - the subject field of the email should read: CS480:HW1
+ 
+       - Please attach your lisp file in the email. The file should be called “yourNetIDHW1.lisp” where your netID is the first part of your GMU email (mine would be “zduricHW1.lisp”.  The body should include:
+ 
+         Your GMU net id
+	 Your name
+         Homework #1 
+     As a safety precaution, always CC yourself when you submit homework
+     this way and keep it around until it has been graded and
+         returned.
+
+     FINAL NOTE: we will test all code using MOSS. 
+ 
